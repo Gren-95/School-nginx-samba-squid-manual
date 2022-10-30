@@ -1,4 +1,4 @@
-⋅⋅* Virtuaalmasinate tegemine
+1. Virtuaalmasinate tegemine
 
 1.1 ISO failide saamine
 Laen alla Ubuntu veebilehelt:
@@ -56,7 +56,7 @@ Luban ssh tulemüürist läbi:
 
 
 
-`
+{`
 server { 
        listen 81; 
        listen [::]:81; 
@@ -71,7 +71,7 @@ server {
        } 
 }
 `
-
+}
 
 
 #####	2.2.7 Taaskäivitan nginx teenuse:
