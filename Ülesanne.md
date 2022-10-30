@@ -32,9 +32,7 @@ Luban ssh tulemüürist läbi:
 `sudo nano /var/www/tutorial/index.html` 
 #####    2.2.6 Lisan faili sisse jägmise:
 
-`
-
-<!doctype html> 
+`<!doctype html> 
 
 <html> 
 
@@ -55,12 +53,12 @@ Luban ssh tulemüürist läbi:
 </body> 
 
 </html> 
-
+`
   
 
-cd /etc/nginx/sites-enabled 
+`cd /etc/nginx/sites-enabled` 
 
-sudo nano tutorial 
+`sudo nano tutorial` 
 `
 server { 
 
