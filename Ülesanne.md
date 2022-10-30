@@ -32,7 +32,7 @@ Luban ssh tulemüürist läbi:
 `sudo nano /var/www/tutorial/index.html` 
 #####    2.2.6 Lisan faili sisse jägmise:
 
-`
+```
 
 <!doctype html> 
 
@@ -57,7 +57,7 @@ Luban ssh tulemüürist läbi:
 </html> 
 
 
-`
+```
   
 
 `cd /etc/nginx/sites-enabled` 
@@ -65,7 +65,7 @@ Luban ssh tulemüürist läbi:
 `sudo nano tutorial`
 
 
-`
+```
 
 
 server { 
@@ -95,7 +95,7 @@ server {
 }
 
 
-`
+```
 
 #####    2.2.7 Taaskäivitan nginx teenuse:
 `sudo service nginx restart `
