@@ -1,5 +1,5 @@
-##    1. Virtuaalmasinate tegemine
-⋅⋅* ISO failide saamine
+1. Virtuaalmasinate tegemine
+⋅⋅1.	ISO failide saamine
 Laen alla Ubuntu veebilehelt:
 [Ubuntu 20.04 server](https://ubuntu.com/download/server)
  ja 
@@ -33,29 +33,17 @@ Luban ssh tulemüürist läbi:
 #####	2.2.6 Lisan faili sisse jägmise:
 
 `
-
 <!doctype html> 
-
 <html> 
-
 <head> 
-
     <meta charset="utf-8"> 
-
     <title>Hello, Nginx!</title> 
-
 </head> 
-
 <body> 
-
     <h1>Hello, Nginx!</h1> 
-
     <p>We have just configured our Nginx web server on Ubuntu Server!</p> 
-
 </body> 
-
 </html> 
-
 
 `
   
@@ -65,35 +53,23 @@ Luban ssh tulemüürist läbi:
 `sudo nano tutorial`
 
 
+
+
 `
-
-
 server { 
-
        listen 81; 
-
        listen [::]:81; 
-
-  
 
        server_name example.com www.example.com; 
 
-  
-
        root /var/www/tutorial; 
-
        index index.html; 
 
-  
-
        location / { 
-
                try_files $uri $uri/ =404; 
-
        } 
-
 }
-
+`
 
 
 
