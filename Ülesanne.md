@@ -1,21 +1,21 @@
-##**    1. Virtuaalmasinate tegemine**
-####		1.1 ISO failide saamine
+##    1. Virtuaalmasinate tegemine
+####  1.1 ISO failide saamine
 Laen alla Ubuntu veebilehelt:
 [Ubuntu 20.04 server](https://ubuntu.com/download/server)
  ja 
 [Ubuntu desktop 22.04 ISO](https://ubuntu.com/download/desktop/thank-you?version=22.04.1&architecture=amd64)
 
-####		1.2 Virtuaalmasinate paigaldamine
+####  1.2 Virtuaalmasinate paigaldamine
 Teen 3 virtuaalmasinat (2 serverit ja 1 desktop) omal vabalt valitud virtuaalmasina tarkvaraga.
 Mina valisin selleks tarkvaraks virt-manager.
 Andsin srveritele 1 tuum, 1024MB RAM ja 10GB kettaruumi ja
 töölauaga masinale 2 tuuma 4096MB RAM ja 35 GB kettaruumi
-####		1.3 Paigaldan OP süsteemid
+####  1.3 Paigaldan OP süsteemid
 Seda saab lihtsalt teha ning, kuid seda pead ise uurima,
 ####		1.4 Uuendan kõik virtuaalmasinad käsuga:
 `sudo apt update && sudo apt upgrade`
 
-**##    2. Server 1 (ilma töölauata)**
+##    2. Server 1 (ilma töölauata)
 ####    2.1 SSH
 Luban ssh tulemüürist läbi:
 `sudo ufw allow ssh && sudo ufw enable`
@@ -31,7 +31,8 @@ Luban ssh tulemüürist läbi:
 #####    2.2.5 Teen veebilehe faili:
 `sudo nano /var/www/tutorial/index.html` 
 #####    2.2.6 Lisan faili sisse jägmise:
-`<!doctype html> 
+`
+<!doctype html> 
 
 <html> 
 
@@ -89,9 +90,17 @@ server {
 
        } 
 
-}`
-#####    2.2.4
-#####    2.2.4
-#####    2.2.4
+}
+`
+#####    2.2.7 Taaskäivitan nginx teenuse:
+`sudo service nginx restart `
+#####    2.2.8 Luban veebilehe tulemüüris läbi:
+`sudo ufw allow 81, 80`
+#####    2.2.9 Panen serveri ip enda browserisse
+ip:81
+example: 192.168.122.139:81
+Tulemus peaks nägema välja selliselt:
+
+
 #####    2.2.4
 #####    2.2.4
