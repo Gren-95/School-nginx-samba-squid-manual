@@ -1,4 +1,5 @@
-1. Virtuaalmasinate tegemine
+⋅⋅* Virtuaalmasinate tegemine
+
 1.1 ISO failide saamine
 Laen alla Ubuntu veebilehelt:
 [Ubuntu 20.04 server](https://ubuntu.com/download/server)
