@@ -33,7 +33,7 @@ Luban ssh tulemüürist läbi:
 `sudo nano /var/www/tutorial/index.html` 
 #####	2.2.6 Lisan faili sisse jägmise:
 
-`
+```
 <!doctype html> 
 <html> 
 <head> 
@@ -45,8 +45,7 @@ Luban ssh tulemüürist läbi:
     <p>We have just configured our Nginx web server on Ubuntu Server!</p> 
 </body> 
 </html> 
-
-`
+```
   
 
 `cd /etc/nginx/sites-enabled` 
@@ -56,7 +55,7 @@ Luban ssh tulemüürist läbi:
 
 
 
-{`
+```
 server { 
        listen 81; 
        listen [::]:81; 
@@ -70,8 +69,7 @@ server {
                try_files $uri $uri/ =404; 
        } 
 }
-`
-}
+```
 
 
 #####	2.2.7 Taaskäivitan nginx teenuse:
@@ -112,7 +110,8 @@ Sealt valid Manual ja esimesse lahtrisse panen proxy serveri `ip` ja teise port 
 #####    2.4.3 Muudan samba conf faili
 `sudo nano /etc/samba/smb.conf`
 lisan faili lõppu
-`[Public]
+```
+[Public]
     path = /home/sambapublicshare
     comment = Citizix Samba Shares
     browsable =yes
@@ -125,7 +124,8 @@ lisan faili lõppu
     valid users = @private
     guest ok = no
     writable = yes
-    browsable = yes`
+    browsable = yes
+```
 #####	2.4.4 Taaskäivitan Samba
 `sudo service smbd restart`
 #####	2.4.5 Luban Samba tulemüürist läbi
