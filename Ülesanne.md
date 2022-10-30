@@ -100,6 +100,7 @@ server {
 ip:81
 example: 192.168.122.139:81
 Tulemus peaks nägema välja selliselt:
+![Picture](./screenshots/nginx.png)
 
 
 #####    2.2.4
