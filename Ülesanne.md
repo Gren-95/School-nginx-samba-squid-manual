@@ -1,18 +1,18 @@
 ##    1. Virtuaalmasinate tegemine
-####  1.1 ISO failide saamine
+⋅⋅* ISO failide saamine
 Laen alla Ubuntu veebilehelt:
 [Ubuntu 20.04 server](https://ubuntu.com/download/server)
  ja 
 [Ubuntu desktop 22.04 ISO](https://ubuntu.com/download/desktop/thank-you?version=22.04.1&architecture=amd64)
 
-####  1.2 Virtuaalmasinate paigaldamine
+⋅⋅* Virtuaalmasinate paigaldamine
 Teen 3 virtuaalmasinat (2 serverit ja 1 desktop) omal vabalt valitud virtuaalmasina tarkvaraga.
 Mina valisin selleks tarkvaraks virt-manager.
 Andsin srveritele 1 tuum, 1024MB RAM ja 10GB kettaruumi ja
 töölauaga masinale 2 tuuma 4096MB RAM ja 35 GB kettaruumi
-####  1.3 Paigaldan OP süsteemid
+⋅⋅* Paigaldan OP süsteemid
 Seda saab lihtsalt teha ning, kuid seda pead ise uurima,
-####		1.4 Uuendan kõik virtuaalmasinad käsuga:
+⋅⋅* Uuendan kõik virtuaalmasinad käsuga:
 `sudo apt update && sudo apt upgrade`
 
 ##    2. Server 1 (ilma töölauata)
@@ -32,7 +32,7 @@ Luban ssh tulemüürist läbi:
 `sudo nano /var/www/tutorial/index.html` 
 #####    2.2.6 Lisan faili sisse jägmise:
 
-```
+`
 
 <!doctype html> 
 
@@ -57,7 +57,7 @@ Luban ssh tulemüürist läbi:
 </html> 
 
 
-```
+`
   
 
 `cd /etc/nginx/sites-enabled` 
@@ -65,7 +65,7 @@ Luban ssh tulemüürist läbi:
 `sudo nano tutorial`
 
 
-```
+`
 
 
 server { 
@@ -95,7 +95,7 @@ server {
 }
 
 
-```
+
 
 #####    2.2.7 Taaskäivitan nginx teenuse:
 `sudo service nginx restart `
@@ -105,8 +105,59 @@ server {
 ip:81
 example: 192.168.122.139:81
 Tulemus peaks nägema välja selliselt:
+
 ![Picture](./screenshots/nginx.png)
 
 
-#####    2.2.4
-#####    2.2.4
+#####    2.3 Proxy teenus 
+#####    2.3.1 Paigaldan squid pakendi: 
+`sudo apt install squid`
+#####    2.3.2 Muudan conf faili:
+Lisan järgmsised read peale rida `include /etc/squid/conf.d/* `
+'acl localnet src 192.168.122.109  # Ubuntu desktop IP 
+acl GOOD dst 192.168.122.139 # Website IP 
+http_access allow GOOD 
+http_access deny all 
+acl Safe_ports port 80 # Ports for nginx 
+acl Safe_ports port 81'
+#####    2.3.3 Käivitan proxy teenuse:
+`sudo systemctl start squid && sudo systemctl enable squid `
+#####    2.3.4 *Lisan proxi ubuntu desktopile
+Settings->Network->Network Proxy
+Sealt valid Manual ja esimesse lahtrisse panen proxy serveri `ip` ja teise port `3128`
+#####    2.4 Samba
+#####    2.4.1 Paigaldan samba pakendi
+`sudo apt install samba`
+
+
+
+
+#####    2.4.3 Muudan samba conf faili
+`sudo nano /etc/samba/smb.conf`
+lisan faili lõppu
+`[Public]
+    path = /home/sambapublicshare
+    comment = Citizix Samba Shares
+    browsable =yes
+    writable = yes
+    guest ok = yes
+    read only = no
+
+[Private]
+    path = /home/sambaprivateshare
+    valid users = @private
+    guest ok = no
+    writable = yes
+    browsable = yes`
+#####    2.4.4 Taaskäivitan Samba
+`sudo service smbd restart`
+#####    2.4.5 Luban Samba tulemüürist läbi
+`sudo ufw allow samba`
+#####    2.3.9
+#####    2.3.
+#####    2.3.
+
+##    3. Server 2 (ilma töölauata)
+#####    3.1.1 SSH
+Luban ssh tulemüürist läbi:
+`sudo ufw allow ssh && sudo ufw enable`
